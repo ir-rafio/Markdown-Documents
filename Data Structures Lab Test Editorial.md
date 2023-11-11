@@ -311,7 +311,7 @@ If adding a new composition to a playlist doesn't change the smallest beauty val
 <details>
 <summary>Hint 4</summary>
 
-There is no reason to not keep the most beautiful composition in your playlist.
+There is no reason to leave out the most beautiful composition from your playlist.
 
 </details>
 
