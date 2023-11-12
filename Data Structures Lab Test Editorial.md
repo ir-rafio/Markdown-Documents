@@ -6,12 +6,19 @@
 <details>
 <summary>Hint 1</summary>
 
-Can you get any idea from the input speech order?
+Can you understand the seating arrangement from the input?
 
 </details>
 
 <details>
 <summary>Hint 2</summary>
+
+Can you get any idea from the input speech order?
+
+</details>
+
+<details>
+<summary>Hint 3</summary>
 
 What will happen if you reverse the input?
 
