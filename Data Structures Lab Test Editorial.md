@@ -131,7 +131,7 @@ void pre()
 
 void solve(int tc)
 {
-    string str, segment;
+    string str;
     getline(cin, str);
 
     list<char> linked_list;
