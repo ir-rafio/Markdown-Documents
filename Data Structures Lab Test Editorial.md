@@ -140,15 +140,18 @@ void solve(int tc)
     int i, n=str.size();
     for(i=0; i<n; i++)
     {
+        // Delete character
         if(str[i]=='<')
         {
             if(it==linked_list.begin()) continue; // Can't delete from here.
             it=linked_list.erase(--it); // Delete the previous character.
         }
 
+        // Jump
         else if(str[i]=='[') it=linked_list.begin();
         else if(str[i]==']') it=linked_list.end();
 
+        // Insert character
         else
         {
             it=linked_list.insert(it, str[i]);
@@ -221,6 +224,7 @@ void solve(int tc)
     int i, n=str.size(), flag=0; // flag=0 means pointer is at back, flag=1 means otherwise.
     for(i=0; i<n; i++)
     {
+        // Delete character
         if(str[i]=='<')
         {
             // If the current segment is not empty, delete its last character.
@@ -234,6 +238,7 @@ void solve(int tc)
             }
         }
 
+        // Jump
         else if(str[i]=='[' || str[i]==']')
         {
             if(!segment.empty()) // No need to add empty segments.
@@ -248,6 +253,7 @@ void solve(int tc)
             else flag=1;
         }
 
+        // Insert character
         else segment.push_back(str[i]);
     }
 
@@ -327,11 +333,11 @@ There is no reason to leave out the most beautiful composition from your playlis
 
 You need to sort the compositions by their beauty in decreasing order. Now you have the most beautiful composition in position $0$ and the least beautiful composition in position $(n-1)$.
 
-Now, if you keep any composition in your playlist, you must also keep all the compositions before it (because they will increase the time length leaving the smallest beauty unchanged). So, you can only keep a prefix.
+Now, if you keep any composition in your playlist, you must also keep all the compositions before it (because they will increase the time length leaving the smallest beauty unchanged). So, the optimal playlist will be a prefix of this sorted array.
 
 There are exactly $n$ options for the size of the prefix. You can check all the options.
 
-You need to traverse the array once, keep a running sum and a running min, calculate the pleasure for every prefix and pick the best answer.
+You need to traverse the array once, keep a running sum of length and a running min of beauty, calculate the pleasure for every prefix and pick the best answer.
 
 Instead of sorting the array, you can also use a max heap (priority_queue). The time complexity will be the same.
 
