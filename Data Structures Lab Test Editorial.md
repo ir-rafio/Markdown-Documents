@@ -335,7 +335,7 @@ At first, simplify the problem by ignoring the constraint of the maximum playlis
 
 You need to sort the compositions by their beauty in decreasing order. Now you have the most beautiful composition in position $0$ and the least beautiful composition in position $(n-1)$.
 
-Now, if you keep any composition in your playlist, you must also keep all the compositions before it (because they will increase the time length leaving the smallest beauty unchanged). So, the optimal playlist will be a prefix of this sorted array.
+Now, if you keep any composition in your playlist, you must also keep all the compositions before it (because they will increase the length, leaving the minimum beauty unchanged). So, the optimal playlist will be a prefix of this sorted array.
 
 There are exactly $n$ options for the size of the prefix. You can check all the options.
 
