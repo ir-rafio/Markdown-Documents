@@ -13,13 +13,6 @@ Can you understand the seating arrangement from the input?
 <details>
 <summary>Hint 2</summary>
 
-Can you get any idea from the input speech order?
-
-</details>
-
-<details>
-<summary>Hint 3</summary>
-
 What will happen if you reverse the input?
 
 </details>
@@ -329,16 +322,7 @@ Is there any reason to leave out the most beautiful composition from your playli
 </details>
 
 <details>
-<summary>Hint 5</summary>
-
-Suppose your playlist contains some compositions. What will happen if you remove one?
-
-Will it always increase the pleasure, always decrease the pleasure or does it depend on something?
-
-</details>
-
-<details>
-<summary>Hint 6</summary>
+<summary>Hint 4.5</summary>
 
 Is there any reason to replace one of the compositions of your playlist with a less beautiful one?
 
@@ -355,7 +339,7 @@ Now, if you keep any composition in your playlist, you must also keep all the co
 
 There are exactly $n$ options for the size of the prefix. You can check all the options.
 
-You need to traverse the array once, keep a running sum of length and a running min of beauty (since the array is sorted, the rightmost composition you're picking is the least beautiful), calculate the pleasure for every prefix and pick the best answer.
+You need to traverse the array once, keep a running sum of length and a running min of beauty (since the array is sorted, the latest composition you're picking is the least beautiful), calculate the pleasure for every prefix and pick the best answer.
 
 Now let's introduce the playlist size constraint again. You can't keep more than $k$ compositions in your playlist.
 
