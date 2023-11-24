@@ -348,4 +348,77 @@ Just like before, you need to traverse your sorted array and add the composition
 There is a slight difference this time. When your composition size becomes greater than $k$, you have to remove the extra composition. Since the minimum beauty of your playlist is only determined by the latest composition, it is always optimal to delete the shortest composition. To keep track of the shortest composition in the playlist at any time, use a heap (priority_queue). Traverse the full array like this and pick the best answer.
 
 </details>
+
+<details>
+<summary>Code</summary>
+
+```cpp
+#include <bits/stdc++.h>
+using namespace std;
+
+#define int long long
+#define fastio ios_base::sync_with_stdio(0); cin.tie(0)
+#define endl "\n"
+
+bool comp(pair<int,int> p1, pair<int,int> p2)
+{
+    return p1.second>p2.second;
+}
+
+void pre()
+{
+    fastio;
+
+    
+}
+
+void solve(int tc)
+{
+    int i, n, k;
+    cin >> n >> k;
+
+    vector<pair<int,int>> v(n);
+    for(i=0; i<n; i++) cin >> v[i].first >> v[i].second; // First=Length, Second=Beauty.
+    sort(v.begin(), v.end(), comp); // Sort from most beautiful to least.
+
+    int len=0, beauty, maxPleasure=0;
+    priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>>> playlist; // Min Heap
+    
+    for(i=0; i<n; i++)
+    {
+        len += v[i].first;
+        beauty = v[i].second; // Since the array is sorted, this is the minimum beauty.
+        playlist.push(v[i]);
+
+        // Remove the shortest composition.
+        if(playlist.size()>k)
+        {
+            len -= playlist.top().first;
+            playlist.pop();
+        }
+
+        maxPleasure=max(maxPleasure, len*beauty);
+    }
+
+    cout << maxPleasure;
+}
+
+signed main()
+{
+    pre();
+
+    int tc, tt=1;
+    // cin >> tt;
+    
+    for(tc=1; tc<=tt; tc++)
+    {
+        solve(tc);
+        // cout << endl;
+    }
+
+    return 0;
+}
+```
+
+</details>
 </details>
