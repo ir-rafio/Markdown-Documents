@@ -103,7 +103,7 @@ Use Linked List.
 <details>
 <summary>Solution</summary>
 
-This is probably the hardest problem of the contest.
+This is probably the most annoying problem of the contest.
 
 You can use a pointer or iterator to point to the cursor and insert or remove elements. However, as it is an implementation problem, it is more difficult to code than understand. So a sample implementation is given:
 
@@ -303,7 +303,7 @@ Will it always increase the pleasure, always decrease the pleasure or does it de
 <details>
 <summary>Hint 2</summary>
 
-Adding a new composition to a playlist always increases its time length.
+Adding a new composition to a playlist always increases its length.
 
 </details>
 
@@ -324,12 +324,30 @@ If adding a new composition to a playlist doesn't change the smallest beauty val
 <details>
 <summary>Hint 4</summary>
 
-There is no reason to leave out the most beautiful composition from your playlist.
+Is there any reason to leave out the most beautiful composition from your playlist?
+
+</details>
+
+<details>
+<summary>Hint 5</summary>
+
+Suppose your playlist contains some compositions. What will happen if you remove one?
+
+Will it always increase the pleasure, always decrease the pleasure or does it depend on something?
+
+</details>
+
+<details>
+<summary>Hint 6</summary>
+
+Is there any reason to replace one of the compositions of your playlist with a less beautiful one?
 
 </details>
 
 <details>
 <summary>Solution</summary>
+
+At first let's simplify the problem by ignoring the constraint of the maximum playlist size. Here, playlist size means the number of compositions in the playlist, which is given as $k$ in the problem statement. In the simplified version of the problem, you can keep as many compositions as you want.
 
 You need to sort the compositions by their beauty in decreasing order. Now you have the most beautiful composition in position $0$ and the least beautiful composition in position $(n-1)$.
 
@@ -337,9 +355,13 @@ Now, if you keep any composition in your playlist, you must also keep all the co
 
 There are exactly $n$ options for the size of the prefix. You can check all the options.
 
-You need to traverse the array once, keep a running sum of length and a running min of beauty, calculate the pleasure for every prefix and pick the best answer.
+You need to traverse the array once, keep a running sum of length and a running min of beauty (since the array is sorted, the rightmost composition you're picking is the least beautiful), calculate the pleasure for every prefix and pick the best answer.
 
-Instead of sorting the array, you can also use a max heap (priority_queue). The time complexity will be the same.
+Now let's introduce the playlist size constraint again. You can't keep more than $k$ compositions in your playlist.
+
+Just like before, you need to traverse your sorted array and add the compositions to your playlist one by one. In every iteration, calculate the pleasure and compare it with the maximum pleasure discovered yet.
+
+There is a slight difference this time. When your composition size becomes greater than $k$, you have to remove the extra composition. Since the minimum beauty of your playlist is only determined by the latest composition, it is always optimal to delete the shortest composition. To keep track of the shortest composition in the playlist at any time, use a heap (priority_queue). Traverse the full array like this and pick the best answer.
 
 </details>
 </details>
