@@ -303,14 +303,14 @@ Adding a new composition to a playlist always increases its length.
 <details>
 <summary>Hint 3</summary>
 
-When will the smallest beauty value of a playlist change?
+When will the minimum beauty of a playlist change?
 
 </details>
 
 <details>
 <summary>Hint 3.5</summary>
 
-If adding a new composition to a playlist doesn't change the smallest beauty value of the playlist, it will always increase the pleasure.
+If adding a new composition to a playlist doesn't change the minimum beauty of the playlist, it will always increase the pleasure.
 
 </details>
 
@@ -331,7 +331,7 @@ Is there any reason to replace one of the compositions of your playlist with a l
 <details>
 <summary>Solution</summary>
 
-At first let's simplify the problem by ignoring the constraint of the maximum playlist size. Here, playlist size means the number of compositions in the playlist, which is given as $k$ in the problem statement. In the simplified version of the problem, you can keep as many compositions as you want.
+At first, simplify the problem by ignoring the constraint of the maximum playlist size. Here, playlist size means the number of compositions in the playlist, which is given as $k$ in the problem statement. In the simplified version of the problem, you can keep as many compositions as you want.
 
 You need to sort the compositions by their beauty in decreasing order. Now you have the most beautiful composition in position $0$ and the least beautiful composition in position $(n-1)$.
 
@@ -341,11 +341,11 @@ There are exactly $n$ options for the size of the prefix. You can check all the 
 
 You need to traverse the array once, keep a running sum of length and a running min of beauty (since the array is sorted, the latest composition you're picking is the least beautiful), calculate the pleasure for every prefix and pick the best answer.
 
-Now let's introduce the playlist size constraint again. You can't keep more than $k$ compositions in your playlist.
+Now introduce the playlist size constraint again. You can't keep more than $k$ compositions in your playlist.
 
 Just like before, you need to traverse your sorted array and add the compositions to your playlist one by one. In every iteration, calculate the pleasure and compare it with the maximum pleasure discovered yet.
 
-There is a slight difference this time. When your composition size becomes greater than $k$, you have to remove the extra composition. Since the minimum beauty of your playlist is only determined by the latest composition, it is always optimal to delete the shortest composition. To keep track of the shortest composition in the playlist at any time, use a heap (priority_queue). Traverse the full array like this and pick the best answer.
+There is a slight difference this time. When your composition size becomes greater than $k$, you have to remove an extra composition. Since the minimum beauty of your playlist is only determined by the latest composition, it is always optimal to remove the shortest composition. To keep track of the shortest composition in the playlist at any time, use a heap (priority_queue). Traverse the full array like this and pick the best answer.
 
 </details>
 
